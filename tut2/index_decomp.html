@@ -1,0 +1,39 @@
+<head>
+  <script src="https://fb.me/react-0.13.3.min.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+</body>
+
+<script type="text/jsx">
+  //Define a class
+  var Badge = React.createClass({
+    render: function() {
+      return <button className="btn btn-primary" type="button">
+        {this.props.title} <span className="badge">{this.props.number}</span>
+      </button>
+    }
+  });
+
+  var Form = React.createClass({
+    render: function() {
+      return <div>
+        <Badge title={this.props.title} number={this.props.number} />
+      </div>
+    }
+  });
+
+  var options = {
+    title: 'Inbox',
+    number: 5
+  }
+
+  //React, please render this class
+  var element = React.createElement(Form, options);
+
+  //after rendering the class, please place it in the tag
+  //param: instance, target
+  React.render(element, document.body);
+</script>
